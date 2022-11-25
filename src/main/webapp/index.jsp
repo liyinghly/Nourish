@@ -23,7 +23,7 @@ h1 {
 	text-align: center;
 }
 
-/* Add a black background color to the top navigation */
+/* nav bar */
 .topnav {
 	position: relative;
 	overflow: hidden;

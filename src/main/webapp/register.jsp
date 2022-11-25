@@ -10,8 +10,10 @@
 <link
 	href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;900&display=swap"
 	rel="stylesheet">
-<title>Login</title>
+
+<title>Register</title>
 </head>
+
 <style>
 
 body {
@@ -83,7 +85,7 @@ h1 {
 }
 /* nav bar */
 
-/* login form */
+/* register form */
 img-fluid {
 	display: grid;
 	place-items: center;
@@ -116,18 +118,24 @@ label {
 	display: block;
 }
 
-#login-btn {
+icon-container {
+	margin-bottom: 20px;
+	padding: 7px 0;
+	font-size: 24px;
+}
+
+#register-btn {
 	background-color: #76B947;
 	color: white;
 	border: none;
 	border-radius: 10px;
 	cursor: pointer;
 	font-size: 17px;
-	padding: 10px 45%;
+	padding: 10px 42%;
 	border: none;
 }
 
-#login-btn:hover {
+#register-btn:hover {
 	background-color: #B1D8B7;
 }
 
@@ -140,7 +148,8 @@ label {
 		margin-bottom: 20px;
 	}
 }
-/* login form */
+/* register form */
+
 </style>
 
 <body>
@@ -158,30 +167,36 @@ label {
 		</div>
 	</div>
 	<!-- Top navigation -->
-	
-	<!-- Login Form -->
-	<div class="container py-5 h-100" style="background-color: #76B947; border-radius: 10px; margin-top: 30px">
+
+	<!-- Register Form -->
+	<div class="container py-5 h-100"
+		style="background-color: #76B947; border-radius: 10px; margin-top: 30px; margin-bottom: 50px">
 		<div
 			class="row d-flex justify-content-center align-items-center h-100">
 			<div class="col col-xl-10">
-				<div class="card" style="border-radius: 1rem; border: solid; border-color: #B1D8B7">
+				<div class="card"
+					style="border-radius: 1rem; border: solid; border-color: #B1D8B7">
 					<div class="row g-0">
 						<div class="col-md-6 col-lg-5 d-none d-md-block">
-							<img src="./assets/cuteshop.png" alt="nourish logo"
-								class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+							<img src="./assets/cuteshop.png" alt="nourish logo" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
 						</div>
 						<div class="col-md-6 col-lg-7 d-flex align-items-center">
 							<div class="card-body p-4 p-lg-5 text-black">
-
 								<form>
 									<div class="d-flex align-items-center mb-3 pb-1">
 										<i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
-										<span class="h1 fw-bold mb-0">Login </span>
+										<span class="h1 fw-bold mb-0">Register </span>
 									</div>
 
 									<div class="form-outline mb-4">
 										Username <input id="name" style="border-radius: 10px;"
 											placeholder="username" class="form-control form-control-lg" />
+										<label class="form-label" for="form2Example17"></label>
+									</div>
+									
+									<div class="form-outline mb-4">
+										Email <input id="email" style="border-radius: 10px;"
+											placeholder="email" class="form-control form-control-lg" />
 										<label class="form-label" for="form2Example17"></label>
 									</div>
 
@@ -194,12 +209,12 @@ label {
 
 									<div class="pt-1 mb-4">
 										<p>
-											<button class="btn" id="login-btn" type="submit">Login</button>
+											<button class="btn" id="register-btn" type="submit">Register</button>
 										</p>
 									</div>
 
 									<p class="mb-5 pb-lg-2" style="color: #393f81;">
-										Don't have an account? <a href="/register.jsp" style="color: #393f81;">Register here</a>
+										Already have an account? <a href="/login.jsp" style="color: #393f81;">Login</a>
 									</p>
 								</form>
 							</div>
@@ -209,7 +224,7 @@ label {
 			</div>
 		</div>
 	</div>
-	<!-- Login Form -->
-	
+	<!-- Register Form -->
+
 </body>
 </html>

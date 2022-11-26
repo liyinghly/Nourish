@@ -124,6 +124,11 @@ icon-container {
 	font-size: 24px;
 }
 
+#registerImg{
+	margin: 40px;
+	margin-top: 100px;
+}
+
 #register-btn {
 	background-color: #76B947;
 	color: white;
@@ -157,13 +162,19 @@ icon-container {
 	<div class="topnav">
 		<!-- Centered link -->
 		<div class="topnav-centered">
-			<a href="/index.jsp" class="active">Nourish</a>
+			<a href="/index.jsp" class="active">
+				<img src="img/logo.png" width="150" height="100" alt="nourish logo" class="img-fluid" id="toplogoNav" />
+			</a>
 		</div>
-
+		
 		<!-- Right-aligned links -->
 		<div class="topnav-right">
-			<a href="#favorite">Favorite</a> <a href="#profile">Profile</a> <a
-				href="#search">Search</a>
+			<a href="/login.jsp">
+				<img src="img/user.png" width="25" height="25"/>
+			</a> 
+			<a href="#search">
+				<img src="img/search.png" width="25" height="25"/>
+			</a>
 		</div>
 	</div>
 	<!-- Top navigation -->
@@ -178,7 +189,7 @@ icon-container {
 					style="border-radius: 1rem; border: solid; border-color: #B1D8B7">
 					<div class="row g-0">
 						<div class="col-md-6 col-lg-5 d-none d-md-block">
-							<img src="./assets/cuteshop.png" alt="nourish logo" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" />
+							<img src="img/loginImage.png" alt="nourish logo" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" id="registerImg"/>
 						</div>
 						<div class="col-md-6 col-lg-7 d-flex align-items-center">
 							<div class="card-body p-4 p-lg-5 text-black">

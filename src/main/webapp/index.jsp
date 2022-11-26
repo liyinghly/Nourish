@@ -29,6 +29,12 @@ h1 {
 	overflow: hidden;
 }
 
+#toplogoNav{
+	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+}
+
 /* Style the links inside the navigation bar */
 .topnav a {
 	float: left;
@@ -89,21 +95,26 @@ h1 {
 	<div class="topnav">
 		<!-- Centered link -->
 		<div class="topnav-centered">
-			<a href="/index.jsp" class="active">Nourish</a>
+			<a href="/index.jsp" class="active">
+				<img src="img/logo.png" width="150" height="100" alt="nourish logo" class="img-fluid" id="toplogoNav" />
+			</a>
 		</div>
-
+		
 		<!-- Right-aligned links -->
 		<div class="topnav-right">
-			<a href="#favorite">Favorite</a> 
-			<a href="/login.jsp">Profile</a> 
-			<a href="#search">Search</a>
+			<a href="/login.jsp">
+				<img src="img/user.png" width="25" height="25"/>
+			</a> 
+			<a href="#search">
+				<img src="img/search.png" width="25" height="25"/>
+			</a>
 		</div>
 	</div>
 	<!-- Top navigation -->
 	
 	<!-- Banner -->
 	<div class="container">
-		<img src="..." alt="website banner" style="margin-top: 30px;">
+		<img src="img/fruits.jpg"  class="img-fluid" alt="website banner" style="margin-top: 30px; border-radius: 1rem;">
 	</div>
 	<!-- Banner -->
 		

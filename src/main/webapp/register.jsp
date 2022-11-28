@@ -15,7 +15,6 @@
 </head>
 
 <style>
-
 body {
 	font-family: 'QuickSand', sans-serif;
 }
@@ -30,6 +29,7 @@ h1 {
 .topnav {
 	position: relative;
 	overflow: hidden;
+	margin-top: 20px;
 }
 
 /* Style the links inside the navigation bar */
@@ -124,7 +124,7 @@ icon-container {
 	font-size: 24px;
 }
 
-#registerImg{
+#registerImg {
 	margin: 40px;
 	margin-top: 100px;
 }
@@ -154,7 +154,6 @@ icon-container {
 	}
 }
 /* register form */
-
 </style>
 
 <body>
@@ -162,18 +161,18 @@ icon-container {
 	<div class="topnav">
 		<!-- Centered link -->
 		<div class="topnav-centered">
-			<a href="/index.jsp" class="active">
-				<img src="img/logo.png" width="150" height="100" alt="nourish logo" class="img-fluid" id="toplogoNav" />
+			<a href="/index.jsp" class="active"> <img src="img/logo.png"
+				width="135px" height="auto" alt="nourish logo" class="img-fluid"
+				id="toplogoNav" />
 			</a>
 		</div>
-		
+
 		<!-- Right-aligned links -->
 		<div class="topnav-right">
-			<a href="/login.jsp">
-				<img src="img/user.png" width="25" height="25"/>
-			</a> 
-			<a href="#search">
-				<img src="img/search.png" width="25" height="25"/>
+			<a href="/login.jsp"> <img src="img/user.png" width="25"
+				height="25" />
+			</a> <a href="#search"> <img src="img/search.png" width="25"
+				height="25" />
 			</a>
 		</div>
 	</div>
@@ -189,7 +188,9 @@ icon-container {
 					style="border-radius: 1rem; border: solid; border-color: #B1D8B7">
 					<div class="row g-0">
 						<div class="col-md-6 col-lg-5 d-none d-md-block">
-							<img src="img/loginImage.png" alt="nourish logo" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" id="registerImg"/>
+							<img src="img/registerImage.png" alt="nourish logo"
+								class="img-fluid" style="border-radius: 1rem 0 0 1rem;"
+								id="registerImg" />
 						</div>
 						<div class="col-md-6 col-lg-7 d-flex align-items-center">
 							<div class="card-body p-4 p-lg-5 text-black">
@@ -204,7 +205,7 @@ icon-container {
 											placeholder="username" class="form-control form-control-lg" />
 										<label class="form-label" for="form2Example17"></label>
 									</div>
-									
+
 									<div class="form-outline mb-4">
 										Email <input id="email" style="border-radius: 10px;"
 											placeholder="email" class="form-control form-control-lg" />
@@ -225,7 +226,8 @@ icon-container {
 									</div>
 
 									<p class="mb-5 pb-lg-2" style="color: #393f81;">
-										Already have an account? <a href="/login.jsp" style="color: #393f81;">Login</a>
+										Already have an account? <a href="/login.jsp"
+											style="color: #393f81;">Login</a>
 									</p>
 								</form>
 							</div>

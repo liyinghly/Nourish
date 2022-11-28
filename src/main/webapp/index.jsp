@@ -27,12 +27,13 @@ h1 {
 .topnav {
 	position: relative;
 	overflow: hidden;
+	margin-top: 20px
 }
 
-#toplogoNav{
+#toplogoNav {
 	display: block;
-  	margin-left: auto;
-  	margin-right: auto;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 /* Style the links inside the navigation bar */
@@ -87,6 +88,41 @@ h1 {
 	}
 }
 
+.rname {
+	padding-left: 3px;
+	padding-top: 8px;
+}
+
+/* link CSS */
+.link-color {
+  color: #18272F;
+  position: relative;
+  text-decoration: none;
+}
+
+.link-color::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  border-radius: 4px;
+  background-color: #18272F;
+  bottom: 0;
+  left: 0;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform .3s ease-in-out;
+}
+
+.link-color:hover {
+	color: black;
+}
+
+.link-color:hover::before {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+/* link CSS */
 </style>
 
 <body>
@@ -95,78 +131,104 @@ h1 {
 	<div class="topnav">
 		<!-- Centered link -->
 		<div class="topnav-centered">
-			<a href="/index.jsp" class="active">
-				<img src="img/logo.png" width="150" height="100" alt="nourish logo" class="img-fluid" id="toplogoNav" />
+			<a href="/index.jsp" class="active"> <img src="img/logo.png"
+				width="135px" height="auto" alt="nourish logo" class="img-fluid"
+				id="toplogoNav" />
 			</a>
 		</div>
-		
+
 		<!-- Right-aligned links -->
 		<div class="topnav-right">
-			<a href="/login.jsp">
-				<img src="img/user.png" width="25" height="25"/>
-			</a> 
-			<a href="#search">
-				<img src="img/search.png" width="25" height="25"/>
+			<a href="/login.jsp"> <img src="img/user.png" width="25"
+				height="25" />
+			</a> <a href="#search"> <img src="img/search.png" width="25"
+				height="25" />
 			</a>
 		</div>
 	</div>
 	<!-- Top navigation -->
-	
+
 	<!-- Banner -->
 	<div class="container">
-		<img src="img/fruits.jpg"  class="img-fluid" alt="website banner" style="margin-top: 30px; border-radius: 1rem;">
+		<img src="img/bannerOne.png" class="img-fluid" alt="website banner"
+			style="margin-top: 30px; border-radius: 1rem;">
 	</div>
 	<!-- Banner -->
-		
+
+	<br>
+
 	<!-- Recipe Cards -->
-	<div class="container" style="margin-top: 30px;">
-	
+	<div class="container">
+
 		<h1 style="font-size: 28px; text-align: left;">Featured Recipes</h1>
-	
-		<div class="row row-cols-1 row-cols-md-3 g-4">
-	
-		  <div class="col mb-4">
-		    <div class="card">
-		      <img src="..." class="card-img-top" alt="...">
-		      <div class="card-body">
-		        <h5 class="card-title">Card title</h5>
-		        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-		      </div>
-		    </div>
-		  </div>
-		  
-		  <div class="col mb-4">
-		    <div class="card">
-		      <img src="..." class="card-img-top" alt="...">
-		      <div class="card-body">
-		        <h5 class="card-title">Card title</h5>
-		        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-		      </div>
-		    </div>
-		  </div>
-		  
-		  <div class="col mb-4">
-		    <div class="card">
-		      <img src="..." class="card-img-top" alt="...">
-		      <div class="card-body">
-		        <h5 class="card-title">Card title</h5>
-		        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-		      </div>
-		    </div>
-		  </div>
-		  
-		  <div class="col mb-4">
-		    <div class="card">
-		      <img src="..." class="card-img-top" alt="...">
-		      <div class="card-body">
-		        <h5 class="card-title">Card title</h5>
-		        <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-		      </div>
-		    </div>
-		  </div>
+
+		<br>
+
+		<div class="row">
+		
+			<div class="col card h-100 border-0">
+				<img src="img/honeyGlazedSalmon.png">
+				<div class="rname">
+					<h5 class="card-title">Honey Glazed Salmon</h5>
+					<p class="card-text">Ratings:4.5</p>
+					<a class="link-color" href="..." style="text-decoration: none;">Read More</a>
+				</div>
+			</div>
+			
+			<div class="col card h-100 border-0">
+				<img src="img/fishTaco.png">
+				<div class="rname">
+					<h5 class="card-title">Easy Fish Tacos</h5>
+					<p class="card-text">Ratings:4.5</p>
+					<a class="link-color" href="..." style="text-decoration: none;">Read More</a>
+				</div>
+			</div>
+			
+			<div class="col card h-100 border-0">
+				<img src="img/smoothieBowl.png">
+				<div class="rname">
+					<h5 class="card-title">Berry Smoothie Bowl</h5>
+					<p class="card-text">Ratings:4.0</p>
+					<a class="link-color" href="..." style="text-decoration: none;">Read More</a>
+				</div>
+			</div>
+			
 		</div>
+
+		<br> <br>
+
+		<div class="row">
+		
+			<div class="col card h-100 border-0">
+				<img src="img/cauliflowerPizza.png">
+				<div class="rname">
+					<h5 class="card-title">Cauliflower Crust Pizza</h5>
+					<p class="card-text">Ratings:4.0</p>
+					<a class="link-color" href="..." style="text-decoration: none;">Read More</a>
+				</div>
+			</div>
+			
+			<div class="col card h-100 border-0"></div>
+			<div class="col card h-100 border-0"></div>
+		</div>
+
+		<br> <br>
+
 	</div>
 	<!-- Recipe Cards -->
 	
+	<!-- Footer -->
+	<footer class="bg-light text-center text-lg-start">
+		<!-- Copyright -->
+		<div class="text-center p-3"
+			style="background-color: #2F5233; color: white">
+			Nourish.com is a property of DLJ © 2022 Copyright: <a class="text-light"
+				href="index.jsp">Nourish.com</a>
+		</div>
+		<!-- Copyright -->
+	</footer>
+	<!-- Footer -->
+
 </body>
+
 </html>

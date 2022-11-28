@@ -13,7 +13,6 @@
 <title>Login</title>
 </head>
 <style>
-
 body {
 	font-family: 'QuickSand', sans-serif;
 }
@@ -28,6 +27,7 @@ h1 {
 .topnav {
 	position: relative;
 	overflow: hidden;
+	margin-top: 20px;
 }
 
 /* Style the links inside the navigation bar */
@@ -116,7 +116,7 @@ label {
 	display: block;
 }
 
-#loginImg{
+#loginImg {
 	margin: 40px;
 	margin-top: 80px;
 }
@@ -153,32 +153,36 @@ label {
 	<div class="topnav">
 		<!-- Centered link -->
 		<div class="topnav-centered">
-			<a href="/index.jsp" class="active">
-				<img src="img/logo.png" width="150" height="100" alt="nourish logo" class="img-fluid" id="toplogoNav" />
+			<a href="/index.jsp" class="active"> <img src="img/logo.png"
+				width="135px" height="auto" alt="nourish logo" class="img-fluid"
+				id="toplogoNav" />
 			</a>
 		</div>
-		
+
 		<!-- Right-aligned links -->
 		<div class="topnav-right">
-			<a href="/login.jsp">
-				<img src="img/user.png" width="25" height="25"/>
-			</a> 
-			<a href="#search">
-				<img src="img/search.png" width="25" height="25"/>
+			<a href="/login.jsp"> <img src="img/user.png" width="25"
+				height="25" />
+			</a> <a href="#search"> <img src="img/search.png" width="25"
+				height="25" />
 			</a>
 		</div>
 	</div>
 	<!-- Top navigation -->
-	
+
 	<!-- Login Form -->
-	<div class="container py-5 h-100" style="background-color: #76B947; border-radius: 10px; margin-top: 30px">
+	<div class="container py-5 h-100"
+		style="background-color: #76B947; border-radius: 10px; margin-top: 30px">
 		<div
 			class="row d-flex justify-content-center align-items-center h-100">
 			<div class="col col-xl-10">
-				<div class="card" style="border-radius: 1rem; border: solid; border-color: #B1D8B7">
+				<div class="card"
+					style="border-radius: 1rem; border: solid; border-color: #B1D8B7">
 					<div class="row g-0">
 						<div class="col-md-6 col-lg-5 d-none d-md-block">
-							<img src="img/loginImage.png" alt="nourish logo" class="img-fluid" style="border-radius: 1rem 0 0 1rem;" id="loginImg"/>
+							<img src="img/loginImage.png" alt="nourish logo"
+								class="img-fluid" style="border-radius: 1rem 0 0 1rem;"
+								id="loginImg" />
 						</div>
 						<div class="col-md-6 col-lg-7 d-flex align-items-center">
 							<div class="card-body p-4 p-lg-5 text-black">
@@ -209,7 +213,8 @@ label {
 									</div>
 
 									<p class="mb-5 pb-lg-2" style="color: #393f81;">
-										Don't have an account? <a href="/register.jsp" style="color: #393f81;">Register here</a>
+										Don't have an account? <a href="/register.jsp"
+											style="color: #393f81;">Register here</a>
 									</p>
 								</form>
 							</div>
@@ -220,6 +225,6 @@ label {
 		</div>
 	</div>
 	<!-- Login Form -->
-	
+
 </body>
 </html>

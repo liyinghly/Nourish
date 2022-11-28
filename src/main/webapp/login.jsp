@@ -188,21 +188,21 @@ label {
 						<div class="col-md-6 col-lg-7 d-flex align-items-center">
 							<div class="card-body p-4 p-lg-5 text-black">
 
-								<form>
+								<form action="LoginServlet" method="post">
 									<div class="d-flex align-items-center mb-3 pb-1">
 										<i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
 										<span class="h1 fw-bold mb-0">Login </span>
 									</div>
 
 									<div class="form-outline mb-4">
-										Username <input id="name" style="border-radius: 10px;"
+										Username <input name="username" style="border-radius: 10px;"
 											placeholder="username" class="form-control form-control-lg" />
 										<label class="form-label" for="form2Example17"></label>
 									</div>
 
 									<div class="form-outline mb-4">
 										Password <input type="password" style="border-radius: 10px"
-											id="password" placeholder="password"
+											name="password" placeholder="password"
 											class="form-control form-control-lg" /> <label
 											class="form-label" for="form2Example27"></label>
 									</div>

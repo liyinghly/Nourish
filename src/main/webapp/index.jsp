@@ -4,6 +4,7 @@
 <html>
 <head>
 <title>Nourish</title>
+<link rel="icon" type="img/leafy.png" href="img/leafy.png">
 <meta charset="ISO-8859-1">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
@@ -131,7 +132,7 @@ h1 {
 	<div class="topnav">
 		<!-- Centered link -->
 		<div class="topnav-centered">
-			<a href="/index.jsp" class="active"> <img src="img/logo.png"
+			<a href="index.jsp" class="active"> <img src="img/logo.png"
 				width="135px" height="auto" alt="nourish logo" class="img-fluid"
 				id="toplogoNav" />
 			</a>
@@ -139,7 +140,7 @@ h1 {
 
 		<!-- Right-aligned links -->
 		<div class="topnav-right">
-			<a href="/login.jsp"> <img src="img/user.png" width="25"
+			<a href="login.jsp"> <img src="img/user.png" width="25"
 				height="25" />
 			</a> <a href="#search"> <img src="img/search.png" width="25"
 				height="25" />

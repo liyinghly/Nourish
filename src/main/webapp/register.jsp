@@ -12,6 +12,7 @@
 	rel="stylesheet">
 
 <title>Register</title>
+<link rel="icon" type="img/leafy.png" href="img/leafy.png">
 </head>
 
 <style>
@@ -130,7 +131,7 @@ icon-container {
 }
 
 #register-btn {
-	background-color: #76B947;
+	background-color: #94C973;
 	color: white;
 	border: none;
 	border-radius: 10px;
@@ -161,7 +162,7 @@ icon-container {
 	<div class="topnav">
 		<!-- Centered link -->
 		<div class="topnav-centered">
-			<a href="/index.jsp" class="active"> <img src="img/logo.png"
+			<a href="index.jsp" class="active"> <img src="img/logo.png"
 				width="135px" height="auto" alt="nourish logo" class="img-fluid"
 				id="toplogoNav" />
 			</a>
@@ -169,7 +170,7 @@ icon-container {
 
 		<!-- Right-aligned links -->
 		<div class="topnav-right">
-			<a href="/login.jsp"> <img src="img/user.png" width="25"
+			<a href="login.jsp"> <img src="img/user.png" width="25"
 				height="25" />
 			</a> <a href="#search"> <img src="img/search.png" width="25"
 				height="25" />
@@ -180,7 +181,7 @@ icon-container {
 
 	<!-- Register Form -->
 	<div class="container py-5 h-100"
-		style="background-color: #76B947; border-radius: 10px; margin-top: 30px; margin-bottom: 50px">
+		style="background-color: #B1D8B7; border-radius: 10px; margin-top: 30px; margin-bottom: 50px">
 		<div
 			class="row d-flex justify-content-center align-items-center h-100">
 			<div class="col col-xl-10">
@@ -226,7 +227,7 @@ icon-container {
 									</div>
 
 									<p class="mb-5 pb-lg-2" style="color: #393f81;">
-										Already have an account? <a href="/login.jsp"
+										Already have an account? <a href="login.jsp"
 											style="color: #393f81;">Login</a>
 									</p>
 								</form>

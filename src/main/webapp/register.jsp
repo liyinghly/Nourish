@@ -228,7 +228,7 @@ icon-container {
 
 									<p class="mb-5 pb-lg-2" style="color: #393f81;">
 										Already have an account? <a href="login.jsp"
-											style="color: #393f81;">Login</a>
+											style="color: #393f81;">Login here</a>
 									</p>
 								</form>
 							</div>
@@ -239,6 +239,18 @@ icon-container {
 		</div>
 	</div>
 	<!-- Register Form -->
+	
+	<!-- Footer -->
+	<footer class="bg-light text-center text-lg-start">
+		<!-- Copyright -->
+		<div class="text-center p-3"
+			style="background-color: #2F5233; color: white">
+			Nourish.com is a property of DLJ © 2022 Copyright: <a class="text-light"
+				href="index.jsp">Nourish.com</a>
+		</div>
+		<!-- Copyright -->
+	</footer>
+	<!-- Footer -->
 
 </body>
 </html>

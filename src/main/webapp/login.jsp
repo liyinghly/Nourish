@@ -31,6 +31,12 @@ h1 {
 	margin-top: 20px;
 }
 
+#toplogoNav {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 /* Style the links inside the navigation bar */
 .topnav a {
 	float: left;
@@ -173,7 +179,7 @@ label {
 
 	<!-- Login Form -->
 	<div class="container py-5 h-100"
-		style="background-color: #B1D8B7; border-radius: 10px; margin-top: 30px">
+		style="background-color: #B1D8B7; border-radius: 10px; margin-top: 30px; margin-bottom: 50px">
 		<div
 			class="row d-flex justify-content-center align-items-center h-100">
 			<div class="col col-xl-10">
@@ -226,6 +232,18 @@ label {
 		</div>
 	</div>
 	<!-- Login Form -->
+	
+	<!-- Footer -->
+	<footer class="bg-light text-center text-lg-start">
+		<!-- Copyright -->
+		<div class="text-center p-3"
+			style="background-color: #2F5233; color: white">
+			Nourish.com is a property of DLJ © 2022 Copyright: <a class="text-light"
+				href="index.jsp">Nourish.com</a>
+		</div>
+		<!-- Copyright -->
+	</footer>
+	<!-- Footer -->
 
 </body>
 </html>

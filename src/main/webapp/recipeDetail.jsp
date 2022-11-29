@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
+<%@ page import="com.dvops.maven.eclipse.Recipe"%>
 <html>
 <head>
-<title>Nourish</title>
-<link rel="icon" type="img/leafy.png" href="img/leafy.png">
 <meta charset="ISO-8859-1">
+<title>Honey Glazed Salmon</title>
+<link rel="icon" type="img/leafy.png" href="img/leafy.png">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <link rel="stylesheet" href="css/mystyle.css">
@@ -14,14 +15,10 @@
 	rel="stylesheet">
 </head>
 <style>
-body {
+body h1 {
+	margin-top: 25px;
 	font-family: 'QuickSand', sans-serif;
-}
-
-h1 {
-	font-weight: bolder;
 	color: #2F5233;
-	text-align: center;
 }
 
 /* nav bar */
@@ -90,43 +87,30 @@ h1 {
 }
 /* nav bar */
 
-.rname {
-	padding-left: 3px;
-	padding-top: 8px;
+/* top card */
+.container {
+	margin-top: 30px;
+}
+/* top card */
+
+/* fav btn */
+.btn {
+	border-color: #94C973;
+	color: white;
+	background-color: #94C973;
+	padding: 3px 20px;
+	font-size: 16px;
+	cursor: pointer;
+	margin-bottom: 30px;
 }
 
-/* link CSS */
-.link-color {
-  color: #18272F;
-  position: relative;
-  text-decoration: none;
+.btn:hover {
+	background-color: white;
+	color: #94C973;
 }
+/* fav btn */
 
-.link-color::before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 2px;
-  border-radius: 4px;
-  background-color: #18272F;
-  bottom: 0;
-  left: 0;
-  transform-origin: right;
-  transform: scaleX(0);
-  transition: transform .3s ease-in-out;
-}
-
-.link-color:hover {
-	color: black;
-}
-
-.link-color:hover::before {
-  transform-origin: left;
-  transform: scaleX(1);
-}
-/* link CSS */
 </style>
-
 <body>
 
 	<!-- Top navigation -->
@@ -150,74 +134,68 @@ h1 {
 	</div>
 	<!-- Top navigation -->
 
-	<!-- Banner -->
+	<!-- Top card -->
 	<div class="container">
-		<img src="img/bannerOne.png" class="img-fluid" alt="website banner"
-			style="margin-top: 30px; border-radius: 1rem;">
-	</div>
-	<!-- Banner -->
+		<div class="card mx-auto border-0"
+			style="width: 100%; padding-bottom: 30px;">
+			<div class="row no-gutters">
+				<div class="col-md-7 mx-auto">
 
-	<br>
+					<h1>Honey Glazed Salmon</h1>
 
-	<!-- Recipe Cards -->
-	<div class="container">
+					<h6>Ratings: 4.5 out of 5.0</h6>
 
-		<h1 style="font-size: 28px; text-align: left;">Featured Recipes</h1>
+					<button class="btn" id="fav-btn" type="submit">Add to
+						Favorites</button>
 
-		<br>
-
-		<div class="row">
-		
-			<div class="col card h-100 border-0">
-				<img src="img/honeyGlazedSalmon.png">
-				<div class="rname">
-					<h5 class="card-title">Honey Glazed Salmon</h5>
-					<p class="card-text">Ratings:4.5</p>
-					<a class="link-color" href="recipeDetail.jsp" style="text-decoration: none;">Read More</a>
+					<h4>Ingredients List:</h4>
+					<h5 style="text-align: left">
+						- 12 oz skinless salmon(340 g) <br> - 1 tablespoon olive oil
+						<br> - 4 cloves garlic, minced <br> - 2 teaspoons
+						ginger, minced <br> - 1/2 teaspoon red pepper <br> - 1
+						tablespoon olive oil <br> - 1/3 cup less sodium soy sauce(80
+						mL) <br> - 1/3 cup honey(115 g) <br>
+					</h5>
+				</div>
+				<div class="col-md-5 mx-auto" style="padding-top: 50px;">
+					<img src="img/honeyGlazedSalmon.png" class="card-img" alt="...">
 				</div>
 			</div>
-			
-			<div class="col card h-100 border-0">
-				<img src="img/fishTaco.png">
-				<div class="rname">
-					<h5 class="card-title">Easy Fish Tacos</h5>
-					<p class="card-text">Ratings:4.5</p>
-					<a class="link-color" href="..." style="text-decoration: none;">Read More</a>
-				</div>
-			</div>
-			
-			<div class="col card h-100 border-0">
-				<img src="img/smoothieBowl.png">
-				<div class="rname">
-					<h5 class="card-title">Berry Smoothie Bowl</h5>
-					<p class="card-text">Ratings:4.0</p>
-					<a class="link-color" href="..." style="text-decoration: none;">Read More</a>
-				</div>
-			</div>
-			
 		</div>
-
-		<br> <br>
-
-		<div class="row">
-		
-			<div class="col card h-100 border-0">
-				<img src="img/cauliflowerPizza.png">
-				<div class="rname">
-					<h5 class="card-title">Cauliflower Crust Pizza</h5>
-					<p class="card-text">Ratings:4.0</p>
-					<a class="link-color" href="..." style="text-decoration: none;">Read More</a>
-				</div>
-			</div>
-			
-			<div class="col card h-100 border-0"></div>
-			<div class="col card h-100 border-0"></div>
-		</div>
-
-		<br> <br>
-
 	</div>
-	<!-- Recipe Cards -->
+	<!-- Top card -->
+
+	<!-- Written recipe -->
+	<div class="container" style="margin-top: 50px">
+		<h1>Written Recipe</h1>
+		<h4 style="line-height: 200%;">Place salmon in a sealable bag or
+			medium bowl. In a small bowl or measuring cup, mix marinade
+			ingredients. Pour half of the marinade on the salmon. Save the other
+			half for later. Let the salmon marinate in the refrigerator for at
+			least 30 minutes. In a medium pan, heat oil. Add salmon to the pan,
+			but discard the used marinade. Cook salmon on one side for about 2-3
+			minutes, then flip over and cook for an additional 1-2 minutes.
+			Remove salmon from pan. Pour in remaining marinade and reduce. Serve
+			the salmon with sauce and a side of veggies. We used broccoli. Enjoy!</h4>
+	</div>
+	<!-- Written recipe -->
+
+	<!-- Video recipe -->
+	<div class="container" style="margin-top: 50px; margin-bottom: 70px;">
+		<h1 style="padding-bottom: 10px;">Video Recipe</h1>
+		<iframe width=880 height="530"
+			src="https://www.youtube.com/embed/cS8pCREiKvY"> 
+		</iframe>
+	</div>
+	<!-- Video recipe -->
+	
+	<hr>
+	
+	<!-- Comment section -->
+	<div class="container" style="margin-top: 50px; margin-bottom: 50px;">
+		<h1 style="padding-bottom: 10px;">Comments</h1>
+	</div>
+	<!-- Comment section -->
 	
 	<!-- Footer -->
 	<footer class="bg-light text-center text-lg-start">
@@ -232,5 +210,4 @@ h1 {
 	<!-- Footer -->
 
 </body>
-
 </html>

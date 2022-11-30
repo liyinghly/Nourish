@@ -5,7 +5,8 @@ public class RecipeBook {
 	public Recipe[] recipes = new Recipe[4];
 	public RecipeBook() {
 		
-		Recipe HoneyGlazedSalmon = new Recipe(
+		
+		/*Recipe HoneyGlazedSalmon = new Recipe(
 				"1",
 				"Honey Glazed Salmon",
 				"12 oz skinless salmon(340 g), 1 tablespoon olive oil, 4 cloves garlic, minced, 2 teaspoons ginger, minced, 1/2 teaspoon red pepper, 1 tablespoon olive oil, 1/3 cup less sodium soy sauce(80 mL), 1/3 cup honey(115 g).",
@@ -44,5 +45,7 @@ public class RecipeBook {
 		recipes[2] = BerrySmoothieBowl;
 		recipes[3] = CauliflowerCrustPizza;
 	}
+	*/
 
+}
 }

@@ -5,6 +5,7 @@
 <head>
 <title>Nourish</title>
 <link rel="icon" type="img/leafy.png" href="img/leafy.png">
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <meta charset="ISO-8859-1">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
@@ -159,73 +160,43 @@ h1 {
 
 	<br>
 
-	<!-- Recipe Cards -->
+	
 	<div class="container">
 
 		<h1 style="font-size: 28px; text-align: left;">Featured Recipes</h1>
 
 		<br>
-
+		
+		
 		<div class="row">
 		
-			<div class="col card h-100 border-0">
-				<img src="img/honeyGlazedSalmon.png">
+		<!-- Recipe Cards -->
+		<c:forEach var="recipe" items="${listRecipes}">
+		<div class="col-md-4 card h-100 border-0" style="margin-bottom: 60px">
+				<img src="<c:out value="${recipe.image}" />">
 				<div class="rname">
-					<h5 class="card-title">Honey Glazed Salmon</h5>
+					<h5 class="card-title"><c:out value="${recipe.name}" /></h5>
 					<p class="card-text">Ratings:4.5</p>
 					<a class="link-color" href="recipeDetail.jsp" style="text-decoration: none;">Read More</a>
 				</div>
 			</div>
-			
-			<div class="col card h-100 border-0">
-				<img src="img/fishTaco.png">
-				<div class="rname">
-					<h5 class="card-title">Easy Fish Tacos</h5>
-					<p class="card-text">Ratings:4.5</p>
-					<a class="link-color" href="..." style="text-decoration: none;">Read More</a>
-				</div>
-			</div>
-			
-			<div class="col card h-100 border-0">
-				<img src="img/smoothieBowl.png">
-				<div class="rname">
-					<h5 class="card-title">Berry Smoothie Bowl</h5>
-					<p class="card-text">Ratings:4.0</p>
-					<a class="link-color" href="..." style="text-decoration: none;">Read More</a>
-				</div>
-			</div>
-			
-		</div>
-
-		<br> <br>
-
-		<div class="row">
+		</c:forEach>
 		
-			<div class="col card h-100 border-0">
-				<img src="img/cauliflowerPizza.png">
-				<div class="rname">
-					<h5 class="card-title">Cauliflower Crust Pizza</h5>
-					<p class="card-text">Ratings:4.0</p>
-					<a class="link-color" href="..." style="text-decoration: none;">Read More</a>
-				</div>
-			</div>
-			
-			<div class="col card h-100 border-0"></div>
-			<div class="col card h-100 border-0"></div>
 		</div>
-
-		<br> <br>
-
+		<!-- Recipe Cards -->
+		
+		<br><br>
+		
 	</div>
-	<!-- Recipe Cards -->
+	
 	
 	<!-- Footer -->
 	<footer class="bg-light text-center text-lg-start">
 		<!-- Copyright -->
 		<div class="text-center p-3"
 			style="background-color: #2F5233; color: white">
-			Nourish.com is a property of DLJ © 2022 Copyright: <a class="text-light"
-				href="index.jsp">Nourish.com</a>
+			Nourish.com is a property of DLJ 2022 Copyright: 
+			<a class="text-light" href="<%=request.getContextPath()%>/HomeServlet">Nourish.com</a>
 		</div>
 		<!-- Copyright -->
 	</footer>

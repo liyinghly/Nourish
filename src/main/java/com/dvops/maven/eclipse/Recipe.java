@@ -2,14 +2,9 @@ package com.dvops.maven.eclipse;
 
 public class Recipe 
 {
-	private static String id;
-	private static String name;
-	private static String ingredients;
-	private static String image;
-	private static String wRecipe;
-	private static String vRecipe;
 	
-	public Recipe(String id, String name, String ingredients, String image, String wRecipe, String vRecipe) {
+	public Recipe(int id, String name, String ingredients, String image, String wRecipe, String vRecipe) {
+		super();
 		this.id = id;
 		this.name = name;
 		this.ingredients = ingredients;
@@ -17,30 +12,50 @@ public class Recipe
 		this.wRecipe = wRecipe;
 		this.vRecipe = vRecipe;
 	}
-	
-	public static String getId() {
+	public int getId() {
 		return id;
 	}
-	
-	public static String getName() {
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getName() {
 		return name;
 	}
-	
-	public static String getIngredients() {
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getIngredients() {
 		return ingredients;
 	}
-	
-	public static String getImage() {
+	public void setIngredients(String ingredients) {
+		this.ingredients = ingredients;
+	}
+	public String getImage() {
 		return image;
 	}
-	
-	public static String getWRecipe() {
+	public void setImage(String image) {
+		this.image = image;
+	}
+	public String getwRecipe() {
 		return wRecipe;
 	}
-	
-	public static String getVRecipe() {
+	public void setwRecipe(String wRecipe) {
+		this.wRecipe = wRecipe;
+	}
+	public String getvRecipe() {
 		return vRecipe;
 	}
+	public void setvRecipe(String vRecipe) {
+		this.vRecipe = vRecipe;
+	}
+	
+	protected int id;
+	protected String name;
+	protected String ingredients;
+	protected String image;
+	protected String wRecipe;
+	protected String vRecipe;
+		
 }
 
 

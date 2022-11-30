@@ -11,7 +11,7 @@
 	href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;900&display=swap"
 	rel="stylesheet">
 
-<title>Register</title>
+<title>Nourish - Register</title>
 <link rel="icon" type="img/leafy.png" href="img/leafy.png">
 </head>
 
@@ -25,66 +25,6 @@ h1 {
 	color: #2F5233;
 	text-align: center;
 }
-
-/* nav bar */
-.topnav {
-	position: relative;
-	overflow: hidden;
-	margin-top: 20px;
-}
-
-/* Style the links inside the navigation bar */
-.topnav a {
-	float: left;
-	color: #2F5233;
-	text-align: center;
-	padding: 14px 16px;
-	text-decoration: none;
-	font-size: 18px;
-	font-weight: bolder;
-}
-
-/* Change the color of links on hover */
-.topnav a:hover {
-	color: black;
-}
-
-/* Add a color to the active/current link */
-.topnav-right a.active {
-	color: black;
-}
-
-/* Centered section inside the top navigation */
-.topnav-centered a {
-	float: none;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	color: #2F5233;
-	font-size: 32px;
-}
-
-/* Right-aligned section inside the top navigation */
-.topnav-right {
-	float: right;
-	padding-right: 30px
-}
-
-/* Responsive navigation menu - display links on top of each other instead of next to each other (for mobile devices) */
-@media screen and (max-width: 600px) {
-	.topnav a, .topnav-right {
-		float: none;
-		display: block;
-	}
-	.topnav-centered a {
-		position: relative;
-		top: 0;
-		left: 0;
-		transform: none;
-	}
-}
-/* nav bar */
 
 /* register form */
 img-fluid {
@@ -158,26 +98,14 @@ icon-container {
 </style>
 
 <body>
-	<!-- Top navigation -->
-	<div class="topnav">
-		<!-- Centered link -->
-		<div class="topnav-centered">
-			<a href="index.jsp" class="active"> <img src="img/logo.png"
-				width="135px" height="auto" alt="nourish logo" class="img-fluid"
-				id="toplogoNav" />
-			</a>
-		</div>
-
-		<!-- Right-aligned links -->
-		<div class="topnav-right">
-			<a href="login.jsp"> <img src="img/user.png" width="25"
-				height="25" />
-			</a> <a href="#search"> <img src="img/search.png" width="25"
-				height="25" />
-			</a>
-		</div>
+	
+	<!-- Nourish Logo -->
+	<div style="display: flex; justify-content:center; padding-top: 20px">
+		<a href="login.jsp">
+			<img src="img/logo.png" width="135px" height="auto" alt="nourish logo">
+		</a>
 	</div>
-	<!-- Top navigation -->
+	<!-- Nourish Logo -->
 
 	<!-- Register Form -->
 	<div class="container py-5 h-100"
@@ -246,7 +174,7 @@ icon-container {
 		<div class="text-center p-3"
 			style="background-color: #2F5233; color: white">
 			Nourish.com is a property of DLJ © 2022 Copyright: <a class="text-light"
-				href="index.jsp">Nourish.com</a>
+				href="login.jsp">Nourish.com</a>
 		</div>
 		<!-- Copyright -->
 	</footer>

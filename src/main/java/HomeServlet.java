@@ -37,10 +37,9 @@ public class HomeServlet extends HttpServlet {
 	private String jdbcUsername = "root";
 	private String jdbcPassword = "password";
 
-	// Step 2: Prepare list of SQL prepared statements to perform CRUD to our
-	// database
+	// Step 2: Prepare list of SQL prepared statements to perform CRUD to our database
 	private static final String SELECT_ALL_RECIPES = "SELECT * from recipes ";
-
+	
 	// Step 3: Implement the getConnection method which facilitates connection to
 	// the database via JDBC
 
@@ -97,8 +96,8 @@ public class HomeServlet extends HttpServlet {
 			throws SQLException, IOException, ServletException {
 		List<Recipe> recipes = new ArrayList<>();
 		try (Connection connection = getConnection();
-				// Step 5.1: Create a statement using connection object
-				PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_RECIPES);) {
+			// Step 5.1: Create a statement using connection object
+			PreparedStatement preparedStatement = connection.prepareStatement(SELECT_ALL_RECIPES);) {
 			// Step 5.2: Execute the query or update query
 			ResultSet rs = preparedStatement.executeQuery();
 			// Step 5.3: Process the ResultSet object.

@@ -12,6 +12,7 @@ public class Recipe
 		this.wRecipe = wRecipe;
 		this.vRecipe = vRecipe;
 	}
+	
 	public int getId() {
 		return id;
 	}

@@ -177,11 +177,11 @@ h1 {
 				<div class="rname">
 					<h5 class="card-title"><c:out value="${recipe.name}" /></h5>
 					<p class="card-text">Ratings:4.5</p>
-					<a class="link-color" href="recipeDetail.jsp" style="text-decoration: none;">Read More</a>
+					<a class="link-color" href="RecipeDetailServlet?id=${recipe.id}" style="text-decoration: none;">Read More</a>
 				</div>
 			</div>
 		</c:forEach>
-		
+		 
 		</div>
 		<!-- Recipe Cards -->
 		

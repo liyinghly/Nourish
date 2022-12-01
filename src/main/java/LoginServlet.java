@@ -52,6 +52,7 @@ public class LoginServlet extends HttpServlet {
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
 		
+		
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection con = DriverManager.getConnection(
@@ -61,10 +62,14 @@ public class LoginServlet extends HttpServlet {
 			ResultSet rs;
 			rs = st.executeQuery("select * from users where username='" + username + "' and password='" +password + "'");
 			if (rs.next()) {
+				int id = rs.getInt("id");
 				HttpSession session = request.getSession();
 				session.setAttribute("user", username);
+				session.setAttribute("userId", id);
+				System.out.println(id);
 				System.out.println(username);
 		        response.sendRedirect("HomeServlet");
+		        
 		    } else {
 		    	response.sendRedirect("login.jsp");
 		    	showMessageDialog(null, "Invalid username or password. Try again");	

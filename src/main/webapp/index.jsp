@@ -134,7 +134,7 @@ h1 {
 	<div class="topnav">
 		<!-- Centered link -->
 		<div class="topnav-centered">
-			<a href="index.jsp" class="active"> <img src="img/logo.png"
+			<a href="HomeServlet" class="active"> <img src="img/logo.png"
 				width="135px" height="auto" alt="nourish logo" class="img-fluid"
 				id="toplogoNav" />
 			</a>
@@ -142,7 +142,7 @@ h1 {
 
 		<!-- Right-aligned links -->
 		<div class="topnav-right">
-			<a href="login.jsp"> <img src="img/user.png" width="25"
+			<a href="profile.jsp"> <img src="img/user.png" width="25"
 				height="25" />
 			</a> <a href="#search"> <img src="img/search.png" width="25"
 				height="25" />
@@ -195,7 +195,7 @@ h1 {
 		<!-- Copyright -->
 		<div class="text-center p-3"
 			style="background-color: #2F5233; color: white">
-			Nourish.com is a property of DLJ 2022 Copyright: 
+			Nourish.com is a property of DLJ &#169; 2022 Copyright: Nourish.com 
 			<a class="text-light" href="<%=request.getContextPath()%>/HomeServlet">Nourish.com</a>
 		</div>
 		<!-- Copyright -->

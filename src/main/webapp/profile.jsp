@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Profile</title>
+<title>Nourish - Profile</title>
 <link rel="icon" type="img/leafy.png" href="img/leafy.png">
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <link rel="stylesheet"
@@ -166,7 +166,7 @@ hr {
 	<div class="topnav">
 		<!-- Centered link -->
 		<div class="topnav-centered">
-			<a href="index.jsp" class="active"> <img src="img/logo.png"
+			<a href="HomeServlet" class="active"> <img src="img/logo.png"
 				width="135px" height="auto" alt="nourish logo" class="img-fluid"
 				id="toplogoNav" />
 			</a>
@@ -174,7 +174,7 @@ hr {
 
 		<!-- Right-aligned links -->
 		<div class="topnav-right">
-			<a href="login.jsp"> <img src="img/user.png" width="25"
+			<a href="profile.jsp"> <img src="img/user.png" width="25"
 				height="25" />
 			</a> <a href="#search"> <img src="img/search.png" width="25"
 				height="25" />
@@ -198,7 +198,7 @@ hr {
 					height="200">
 				<h1 style="font-size: 22px; text-align: center;">
 					Username 
-					<a href="profileDetail.jsp" style="text-decoration: none;">
+					<a href="editProfile.jsp" style="text-decoration: none;">
 						<img src="img/editbtn.png" style="height: 20px; width: 20px;">
 					</a>
 				</h1>
@@ -252,7 +252,7 @@ hr {
 		<!-- Copyright -->
 		<div class="text-center p-3"
 			style="background-color: #2F5233; color: white">
-			Nourish.com is a property of DLJ 2022 Copyright: <a
+			Nourish.com is a property of DLJ © 2022 Copyright: <a
 				class="text-light" href="<%=request.getContextPath()%>/HomeServlet">Nourish.com</a>
 		</div>
 		<!-- Copyright -->

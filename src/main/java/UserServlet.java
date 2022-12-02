@@ -62,12 +62,36 @@ public class UserServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
-		
+
+		String action = request.getServletPath();
+		try {
+			switch (action) {
+			case "/insert":
+				break;
+			case "/delete":
+				break;
+			case "/edit":
+				break;
+			case "/update":
+				break;
+			default:
+				listUser(request, response);
+				break;
+			}
+		} catch (SQLException ex) {
+			throw new ServletException(ex);
+		}
+
+	}
+
+	// listUser function to connect to the database and retrieve the user's record and display in the profile.jsp
+	private void listUser(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException, ServletException {
+
 		HttpSession session = request.getSession();
-		// SELECT_USER_BY_ID SQL prepared statement
-		// getting the user's id from the session storage
+		// SELECT_USER_BY_ID SQL prepared statement: getting the user's id from the session storage
 		String query = "select * from users where id = " + session.getAttribute("userId");
-		
+
 		List<User> user = new ArrayList<>();
 		try (Connection connection = getConnection();
 
@@ -83,17 +107,19 @@ public class UserServlet extends HttpServlet {
 				String username = rs.getString("username");
 				String email = rs.getString("email");
 				String password = rs.getString("password");
+				System.out.println(username + "'s profile");
 				user.add(new User(id, username, email, password));
-				
+
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
 
+		// set the listUser attribute to be pass to the profile.jsp
 		request.setAttribute("listUser", user);
 		request.getRequestDispatcher("profile.jsp").forward(request, response);
 	}
-	
+
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)

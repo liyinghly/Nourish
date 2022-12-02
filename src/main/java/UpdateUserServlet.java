@@ -1,5 +1,13 @@
 
+import static javax.swing.JOptionPane.showMessageDialog;
+
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -7,7 +15,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.dvops.maven.eclipse.Recipe;
 import com.dvops.maven.eclipse.User;
 
 import java.sql.Connection;
@@ -20,16 +27,16 @@ import java.util.List;
 import javax.servlet.RequestDispatcher;
 
 /**
- * Servlet implementation class UserServlet
+ * Servlet implementation class UpdateUserServlet
  */
-@WebServlet("/UserServlet")
-public class UserServlet extends HttpServlet {
+@WebServlet("/UpdateUserServlet")
+public class UpdateUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public UserServlet() {
+	public UpdateUserServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -63,65 +70,7 @@ public class UserServlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 
-		String action = request.getServletPath();
-		try {
-			switch (action) {
-			case "/insert":
-				break;
-			case "/delete":
-				break;
-			case "/edit":
-				break;
-			case "/update":
-				break;
-			default:
-				listUser(request, response);
-				break;
-			}
-		} catch (SQLException ex) {
-			throw new ServletException(ex);
-		}
-
 	}
-	
-	// listUser function to connect to the database and retrieve the user's record
-		// and display in the profile.jsp
-		private void listUser(HttpServletRequest request, HttpServletResponse response)
-				throws SQLException, IOException, ServletException {
-
-			HttpSession session = request.getSession();
-			// SELECT_USER_BY_ID SQL prepared statement: getting the user's id from the
-			// session storage
-			String query = "select * from users where id = " + session.getAttribute("userId");
-
-			List<User> user = new ArrayList<>();
-			try (Connection connection = getConnection();
-
-					// Step 5.1: Create a statement using connection object
-					PreparedStatement preparedStatement = connection.prepareStatement(query);) {
-
-				// Step 5.2: Execute the query or update query
-				ResultSet rs = preparedStatement.executeQuery();
-
-				// Step 5.3: Process the ResultSet object.
-				while (rs.next()) {
-					int id = rs.getInt("id");
-					String username = rs.getString("username");
-					String email = rs.getString("email");
-					String password = rs.getString("password");
-					System.out.println(username + "'s profile");
-					user.add(new User(id, username, email, password));
-
-				}
-			} catch (SQLException e) {
-				System.out.println(e.getMessage());
-			}
-
-			// set the listUser attribute to be pass to the profile.jsp
-			request.setAttribute("listUser", user);
-			request.getRequestDispatcher("profile.jsp").forward(request, response);
-		}
-
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
@@ -130,6 +79,32 @@ public class UserServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
+
+		HttpSession session = request.getSession();
+
+		// Step 1: Retrieve value from the request
+		String username = request.getParameter("username");
+		String email = request.getParameter("email");
+
+		String query = "update users set username =  ?, email = ? where id =" + session.getAttribute("userId");
+
+		try (Connection connection = getConnection();
+				PreparedStatement statement = connection.prepareStatement(query);) {
+			statement.setString(1, username);
+			statement.setString(2, email);
+			int i = statement.executeUpdate();
+			
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+
+		session.setAttribute("user", username);
+		session.setAttribute("email", email);
+		System.out.println(username);
+		System.out.println(email);
+		response.sendRedirect("UserServlet");
+		showMessageDialog(null, "Profile updated successfully!");
+
 		doGet(request, response);
 	}
 

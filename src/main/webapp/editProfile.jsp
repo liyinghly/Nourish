@@ -142,7 +142,7 @@ label {
 
 		<!-- Right-aligned links -->
 		<div class="topnav-right">
-			<a href="login.jsp"> <img src="img/user.png" width="25"
+			<a href="<%=request.getContextPath()%>/UserServlet"> <img src="img/user.png" width="25"
 				height="25" />
 			</a> <a href="#search"> <img src="img/search.png" width="25"
 				height="25" />

@@ -70,11 +70,13 @@ public class UserServlet extends HttpServlet {
 				break;
 			case "/delete":
 				break;
-			case "/edit":
+			case "/UserServlet/edit":
+				showEditForm(request, response);
 				break;
-			case "/update":
+			case "/UserServlet/update":
+				updateUser(request, response);
 				break;
-			default:
+			case "/UserServlet/userprofile":
 				listUser(request, response);
 				break;
 			}
@@ -84,19 +86,77 @@ public class UserServlet extends HttpServlet {
 
 	}
 
-	// listUser function to connect to the database and retrieve the user's record and display in the profile.jsp
+	// method to get parameter, query database for existing user data and redirect
+	// to user edit page
+	private void showEditForm(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, ServletException, IOException {
+
+		HttpSession session = request.getSession();
+		// SELECT_USER_BY_ID SQL prepared statement: getting the user's id from the
+		// session storage
+		String query = "select * from users where id = " + session.getAttribute("userId");
+		User existingUser = new User((int) (session.getAttribute("userId")), "", "", "");
+
+		// Step 1: Establishing a Connection
+		try (Connection connection = getConnection();
+				// Step 2:Create a statement using connection object
+				PreparedStatement preparedStatement = connection.prepareStatement(query);) {
+			preparedStatement.setString(1, (String) session.getAttribute("user"));
+			// Step 3: Execute the query or update query
+			ResultSet rs = preparedStatement.executeQuery();
+			// Step 4: Process the ResultSet object
+			while (rs.next()) {
+				String username = rs.getString("username");
+				String email = rs.getString("email");
+				String password = rs.getString("password");
+				existingUser = new User((int) (session.getAttribute("userId")), username, email, password);
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		// Step 5: Set existingUser to request and serve up the userEdit form
+		request.setAttribute("user", existingUser);
+		request.getRequestDispatcher("/editProfile.jsp").forward(request, response);
+	}
+
+	// method to update the user table base on the form data
+	private void updateUser(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
+		
+		HttpSession session = request.getSession();
+		
+		// Step 1: Retrieve value from the request
+		String username = request.getParameter("username");
+		String email = request.getParameter("email");
+		
+		String query = "update users set username =  ?, email = ? where username =" + session.getAttribute("user");
+		
+		// Step 2: Attempt connection with database and execute update user SQL query
+		try (Connection connection = getConnection();
+			PreparedStatement statement = connection.prepareStatement(query);) {
+			statement.setString(1, username);
+			statement.setString(3, email);
+			int i = statement.executeUpdate();
+		}
+		// Step 3: redirect back to UserServlet (note: remember to change the url to
+		// your project name)
+		response.sendRedirect("UserServlet");
+	}
+
+	// listUser function to connect to the database and retrieve the user's record
+	// and display in the profile.jsp
 	private void listUser(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 
 		HttpSession session = request.getSession();
-		// SELECT_USER_BY_ID SQL prepared statement: getting the user's id from the session storage
+		// SELECT_USER_BY_ID SQL prepared statement: getting the user's id from the
+		// session storage
 		String query = "select * from users where id = " + session.getAttribute("userId");
 
 		List<User> user = new ArrayList<>();
 		try (Connection connection = getConnection();
 
-			// Step 5.1: Create a statement using connection object
-			PreparedStatement preparedStatement = connection.prepareStatement(query);) {
+				// Step 5.1: Create a statement using connection object
+				PreparedStatement preparedStatement = connection.prepareStatement(query);) {
 
 			// Step 5.2: Execute the query or update query
 			ResultSet rs = preparedStatement.executeQuery();

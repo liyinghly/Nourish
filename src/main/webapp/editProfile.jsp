@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
 <link rel="stylesheet" href="css/mystyle.css">
@@ -184,18 +185,24 @@ label {
 									<div style="text-align: center">
 										<h1>Edit Profile</h1>
 									</div>
-
+									
 									<div class="form-outline mb-4">
-										Username <input name="username" style="border-radius: 10px;"
+										Username 
+										<c:if test="${user != null }">
+										<input name="username" style="border-radius: 10px;"
 											placeholder="username" class="form-control form-control-lg" />
+										</c:if>
 										<label class="form-label" for="form2Example17"></label>
 									</div>
 
 									<div class="form-outline mb-4">
-										Email <input type="password" style="border-radius: 10px"
+										Email
+										<c:if test="${user != null }">
+										<input style="border-radius: 10px"
 											name="email" placeholder="email"
-											class="form-control form-control-lg" /> <label
-											class="form-label" for="form2Example27"></label>
+											class="form-control form-control-lg" />
+										</c:if>
+									<label class="form-label" for="form2Example27"></label>
 									</div>
 
 									<div class="pt-1 mb-4">

@@ -152,7 +152,9 @@ hr {
 }
 
 .button:hover {
-	box-shadow: 0px 5px 10px 0px #2F5233
+	box-shadow: 0px 5px 10px 0px #2F5233;
+	text-decoration: none;
+	color: white;
 }
 
 .button:focus {
@@ -196,17 +198,23 @@ hr {
 			<div class="profile">
 				<img src="img/ProfilePic.png" class="rounded-circle" width="200"
 					height="200">
+				<c:forEach var="user" items="${listUser}">
 				<h1 style="font-size: 22px; text-align: center;">
-					Username 
+					${user.username} 
 					<a href="editProfile.jsp" style="text-decoration: none;">
 						<img src="img/editbtn.png" style="height: 20px; width: 20px;">
 					</a>
 				</h1>
+				</c:forEach>
 			</div>
 		</div>
 		
 		<div>
-			<button class="button">Log Out</button>
+			<a class="button" href="<%=request.getContextPath()%>/LogoutServlet">
+				Log Out
+			</a>
+			
+			
 		</div>
 	</div>		
 

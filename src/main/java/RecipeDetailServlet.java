@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.swing.JOptionPane;
 
 import com.dvops.maven.eclipse.Comment;
 import com.dvops.maven.eclipse.Recipe;
@@ -104,7 +105,7 @@ public class RecipeDetailServlet extends HttpServlet {
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
-		
+
 		//Get comments
 		List<Comment> comment = new ArrayList<>();
 		try (Connection connection = getConnection();
@@ -124,29 +125,30 @@ public class RecipeDetailServlet extends HttpServlet {
 				String username = rs.getString("username");
 				String review = rs.getString("review");
 				String dateposted = rs.getString("dateposted");
+				session.setAttribute("commentuser", username);
 				comment.add(new Comment(id, recipeid, recipeName, userId, username, review, dateposted));
 				System.out.println(username + ", " + review + ", " + dateposted);
-				
+				System.out.println(username);
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
-		
+
 		request.setAttribute("listComment", comment);
 		request.setAttribute("listRecipe", recipe);
 		request.getRequestDispatcher("recipeDetail.jsp").forward(request, response);
 
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		/**
+		 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+		 *      response)
+		 */
+		protected void doPost(HttpServletRequest request, HttpServletResponse response)
+				throws ServletException, IOException {
+			// TODO Auto-generated method stub
 
-		doGet(request, response);
+			doGet(request, response);
+		}
+
 	}
-
-}

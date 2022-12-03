@@ -184,7 +184,8 @@ body h1 {
 		<!-- Video recipe -->
 		<div class="container" style="margin-top: 50px; margin-bottom: 70px;">
 			<h1 style="padding-bottom: 10px;">Video</h1>
-			<iframe width=880 height="530" src="${recipe.vRecipe}"> </iframe>
+			<div  style="display: flex; justify-content: center;"><iframe width=1080 height="630" src="${recipe.vRecipe}"> </iframe></div>
+			
 		</div>
 		<!-- Video recipe -->
 	</c:forEach>
@@ -193,7 +194,7 @@ body h1 {
 	<!-- Comment section -->
 	<div class="container" style="margin-top: 50px; margin-bottom: 50px;">
 
-		<h1 style="padding-bottom: 10px;">Comments (2)</h1>
+		<h1 style="padding-bottom: 10px;">Comment(s)</h1>
 
 		<!-- Add Comments -->
 		<div class="container" style="width: 920px">
@@ -205,7 +206,7 @@ body h1 {
 
 			<!-- Message input -->
 			<div class="form-outline mb-4">
-				 <textarea class="form-control" id="form4Example3" rows="5" name="review"></textarea>
+				 <textarea class="form-control" id="form4Example3" rows="5" name="review" required></textarea>
 			</div>
 
 			<!-- Submit button -->
@@ -219,23 +220,23 @@ body h1 {
 		<hr>
 
 		<!-- comment 1 -->
+		<c:forEach var="comment" items="${listComment}">
 		<div class="container" style="margin-top: 40px;">
 			<div
-				class="row d-flex justify-content-center align-items-center h-100">
+				class="row d-flex justify-content-center align-items-center h-100 mx-auto">
 				<div class="col col-xl-10">
 					<div class="card">
 						<div class="row no-gutters">
 							<div class="col-auto">
 								<img src="img/ProfilePic.png"
-									style="width: 150px; padding: 15px" class="img-fluid">
+									style="width: 120px; padding: 20px" class="img-fluid">
 							</div>
 							<div class="col">
 								<div class="card-block"
-									style="padding-left: 10px; padding-top: 20px">
-									<h3 class="card-title">billy</h3>
-									<p class="card-text">Actually not bad, would recommend
-										others to try. Simple recipe with little ingredients, 9/10.</p>
-									<b class="card-text">Posted 23-12-2021, 13:45:32</b>
+									style="padding-left: 10px; padding-top: 20px; padding-bottom: 15px">
+									<h3 class="card-title">${comment.username}</h3>
+									<p class="card-text">${comment.review}</p>
+									<b class="card-text">${comment.dateposted}</b>
 								</div>
 							</div>
 						</div>
@@ -243,34 +244,9 @@ body h1 {
 				</div>
 			</div>
 		</div>
+		</c:forEach>
 		<!-- comment 1 -->
 
-		<!-- comment 2 -->
-		<div class="container" style="margin-top: 40px;">
-			<div
-				class="row d-flex justify-content-center align-items-center h-100">
-				<div class="col col-xl-10">
-					<div class="card">
-						<div class="row no-gutters">
-							<div class="col-auto">
-								<img src="img/ProfilePic.png"
-									style="width: 150px; padding: 15px" class="img-fluid">
-							</div>
-							<div class="col">
-								<div class="card-block"
-									style="padding-left: 10px; padding-top: 20px">
-									<h3 class="card-title">billy</h3>
-									<p class="card-text">Actually not bad, would recommend
-										others to try. Simple recipe with little ingredients, 9/10.</p>
-									<b class="card-text">Posted 23-12-2021, 13:45:32</b>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- comment 2 -->
 	</div>
 	<!-- Comment section -->
 

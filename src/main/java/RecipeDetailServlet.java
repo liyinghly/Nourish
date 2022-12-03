@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.dvops.maven.eclipse.Comment;
 import com.dvops.maven.eclipse.Recipe;
 
 import java.sql.Connection;
@@ -71,7 +72,9 @@ public class RecipeDetailServlet extends HttpServlet {
 		int recipeId = Integer.parseInt(request.getParameter("id"));
 		// System.out.println(recipeId);
 		String query = "select * from recipes where id = " + recipeId;
+		String commentQuery = "select * from comments where recipeId = " + recipeId;
 
+		//Get recipes 
 		List<Recipe> recipe = new ArrayList<>();
 		// TODO Auto-generated method stub
 		try (Connection connection = getConnection();
@@ -101,7 +104,35 @@ public class RecipeDetailServlet extends HttpServlet {
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
+		
+		//Get comments
+		List<Comment> comment = new ArrayList<>();
+		try (Connection connection = getConnection();
 
+				// Step 5.1: Create a statement using connection object
+				PreparedStatement preparedStatement = connection.prepareStatement(commentQuery);) {
+
+			// Step 5.2: Execute the query or update query
+			ResultSet rs = preparedStatement.executeQuery();
+
+			// Step 5.3: Process the ResultSet object.
+			while (rs.next()) {
+				int id = rs.getInt("id");
+				int recipeid = rs.getInt("recipeId");
+				int userId = rs.getInt("userId");
+				String recipeName = rs.getString("recipeName");
+				String username = rs.getString("username");
+				String review = rs.getString("review");
+				String dateposted = rs.getString("dateposted");
+				comment.add(new Comment(id, recipeid, recipeName, userId, username, review, dateposted));
+				System.out.println(username + ", " + review + ", " + dateposted);
+				
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		
+		request.setAttribute("listComment", comment);
 		request.setAttribute("listRecipe", recipe);
 		request.getRequestDispatcher("recipeDetail.jsp").forward(request, response);
 

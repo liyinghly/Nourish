@@ -121,6 +121,10 @@ body h1 {
 	font-family: 'QuickSand', sans-serif;
 	color: black;
 }
+
+.a {
+	text-align: left;
+}
 /* card text */
 </style>
 
@@ -137,8 +141,8 @@ body h1 {
 
 		<!-- Right-aligned links -->
 		<div class="topnav-right">
-			<a href="<%=request.getContextPath()%>/UserServlet"> <img src="img/user.png" width="25"
-				height="25" />
+			<a href="<%=request.getContextPath()%>/UserServlet"> <img
+				src="img/user.png" width="25" height="25" />
 			</a> <a href="#search"> <img src="img/search.png" width="25"
 				height="25" />
 			</a>
@@ -184,8 +188,10 @@ body h1 {
 		<!-- Video recipe -->
 		<div class="container" style="margin-top: 50px; margin-bottom: 70px;">
 			<h1 style="padding-bottom: 10px;">Video</h1>
-			<div  style="display: flex; justify-content: center;"><iframe width=1080 height="630" src="${recipe.vRecipe}"> </iframe></div>
-			
+			<div style="display: flex; justify-content: center;">
+				<iframe width=1080 height="630" src="${recipe.vRecipe}"> </iframe>
+			</div>
+
 		</div>
 		<!-- Video recipe -->
 	</c:forEach>
@@ -198,22 +204,23 @@ body h1 {
 
 		<!-- Add Comments -->
 		<div class="container" style="width: 920px">
-		
-		<h4 style="padding-bottom: 10px;">Add Comments</h4>
-		
-		<!-- Comment Form -->
-		<form action="AddCommentServlet" method="post">
 
-			<!-- Message input -->
-			<div class="form-outline mb-4">
-				 <textarea class="form-control" id="form4Example3" rows="5" name="review" required></textarea>
-			</div>
+			<h4 style="padding-bottom: 10px;">Add Comments</h4>
 
-			<!-- Submit button -->
-			<button type="submit" class="btn" style="padding: 4px 50px">Add</button>
-		</form>
-		<!-- Comment Form -->
-		
+			<!-- Comment Form -->
+			<form action="AddCommentServlet" method="post">
+
+				<!-- Message input -->
+				<div class="form-outline mb-4">
+					<textarea class="form-control" id="form4Example3" rows="5"
+						name="review" required></textarea>
+				</div>
+
+				<!-- Submit button -->
+				<button type="submit" class="btn" style="padding: 4px 50px">Add</button>
+			</form>
+			<!-- Comment Form -->
+
 		</div>
 		<!-- Add Comments -->
 
@@ -221,29 +228,36 @@ body h1 {
 
 		<!-- comment 1 -->
 		<c:forEach var="comment" items="${listComment}">
-		<div class="container" style="margin-top: 40px;">
-			<div
-				class="row d-flex justify-content-center align-items-center h-100 mx-auto">
-				<div class="col col-xl-10">
-					<div class="card">
-						<div class="row no-gutters">
-							<div class="col-auto">
-								<img src="img/ProfilePic.png"
-									style="width: 120px; padding: 20px" class="img-fluid">
-							</div>
-							<div class="col">
-								<div class="card-block"
-									style="padding-left: 10px; padding-top: 20px; padding-bottom: 15px">
-									<h3 class="card-title">${comment.username}</h3>
-									<p class="card-text">${comment.review}</p>
-									<b class="card-text">${comment.dateposted}</b>
+			<div class="container" style="margin-top: 40px;">
+				<div
+					class="row d-flex justify-content-center align-items-center h-100 mx-auto">
+					<div class="col col-xl-10">
+						<div class="card">
+							<div class="row no-gutters">
+								<div class="col-auto">
+									<img src="img/ProfilePic.png"
+										style="width: 120px; padding: 20px" class="img-fluid">
+								</div>
+								
+								<div class="col">
+									<div class="card-block"
+										style="padding-left: 10px; padding-top: 20px; padding-bottom: 15px">
+										
+										<a href="DeleteCommentServlet?id=${comment.id}" style="float: right; padding-right:10px; ">
+											<img src="img/deletebtn.png"
+											style="height: 20px; width: 20px;">
+										</a>
+										
+										<h3 class="card-title" >${comment.username}</h3>
+										<p class="card-text">${comment.review}</p>
+										<b class="card-text">${comment.dateposted}</b>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 		</c:forEach>
 		<!-- comment 1 -->
 

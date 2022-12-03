@@ -152,7 +152,7 @@ hr {
 }
 
 .button:hover {
-	box-shadow: 0px 5px 10px 0px #2F5233;
+	box-shadow: 0px 5px 10px 0px #AAAAAA;
 	text-decoration: none;
 	color: white;
 }
@@ -160,6 +160,62 @@ hr {
 .button:focus {
 	outline:none;
 }
+
+.delete-btn {
+	background-color: white; /* Green */
+	border: solid #94C973;
+	color: #94C973;
+	padding: 5px 40px;
+	border-radius: 1rem; 
+	text-align : center;
+	text-decoration: none;
+	font-size: 18px;
+	cursor: pointer;
+	float: right;
+}
+
+.delete-btn:hover {
+	background-color: red;
+	box-shadow: 0px 5px 10px 0px #AAAAAA;
+	text-decoration: none;
+	color: white;
+	border: solid red;
+}
+
+.delete-btn:focus {
+	outline:none;
+}
+
+/* link CSS */
+.link-color {
+  color: #18272F;
+  position: relative;
+  text-decoration: none;
+}
+
+.link-color::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  border-radius: 4px;
+  background-color: #18272F;
+  bottom: 0;
+  left: 0;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform .3s ease-in-out;
+}
+
+.link-color:hover {
+	color: black;
+}
+
+.link-color:hover::before {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+/* link CSS */
 
 </style>
 
@@ -186,7 +242,6 @@ hr {
 	<!-- Top navigation -->
 
 	<!-- Profile Banner -->
- 
 	<div class="container">
 	
 		<div class="upper">
@@ -214,46 +269,48 @@ hr {
 				Log Out
 			</a>
 			
-			
 		</div>
 	</div>		
-
 	<!-- Profile Banner -->
-
+	
+	<!--  Favourite Recipes -->
 	<br>
 
-	<div class="container">
-		<hr style="margin-top: 150px">
-		<h1 style="font-size: 28px; text-align: left; margin-top: 30px">Favourite
-			Recipes</h1>
+	<div class="container"  style="margin-top: 150px;">
+	
+		<hr>
+
+		<h1 style="font-size: 28px; text-align: left; margin-top: 40px">Favorite Recipes</h1>
 
 		<br>
-
+		
+		
 		<div class="row">
-
-			<!-- Recipe Cards -->
-			<c:forEach var="recipe" items="${listRecipes}">
-				<div class="col-md-4 card h-100 border-0"
-					style="margin-bottom: 60px">
-					<img src="<c:out value="${recipe.image}" />">
-					<div class="rname">
-						<h5 class="card-title">
-							<c:out value="${recipe.name}" />
-						</h5>
-						<p class="card-text">Ratings:4.5</p>
-						<a class="link-color" href="recipeDetail.jsp"
-							style="text-decoration: none;">Read More</a>
-					</div>
+		
+		<!-- Recipe Cards -->
+		<div class="col-md-4 card h-100 border-0" style="margin-bottom: 60px;">
+				<img src="img/honeyGlazedSalmon.png">
+				<div class="rname">
+					<h5 class="card-title"><c:out value="Honey Glazed Salmon" /></h5>
+					<p class="card-text">Ratings:4.5</p>
+					<a class="link-color" href="RecipeDetailServlet?id=${recipe.id}" style="text-decoration: none;">Read More</a>
 				</div>
-			</c:forEach>
-
+			</div>
 		</div>
 		<!-- Recipe Cards -->
-
-		<br> <br> <br> <br>
-
+		
+		<br><br>
+		
 	</div>
-
+	<!--  Favourite Recipes -->
+	
+	<!--  Delete User Button -->
+	<div class="container"  style="height: 70px;">
+		<c:forEach var="user" items="${listUser}">
+			<a class="delete-btn" href="<%=request.getContextPath()%>/DeleteUserServlet">Delete Account</a>
+		</c:forEach>
+	</div>
+	<!--  Delete User Button -->
 
 	<!-- Footer -->
 	<footer class="bg-light text-center text-lg-start">

@@ -200,16 +200,19 @@ body h1 {
 		
 		<h4 style="padding-bottom: 10px;">Add Comments</h4>
 		
-		<form>
+		<!-- Comment Form -->
+		<form action="AddCommentServlet" method="post">
 
 			<!-- Message input -->
 			<div class="form-outline mb-4">
-				<textarea class="form-control" id="form4Example3" rows="5"></textarea>
+				 <textarea class="form-control" id="form4Example3" rows="5" name="review"></textarea>
 			</div>
 
 			<!-- Submit button -->
 			<button type="submit" class="btn" style="padding: 4px 50px">Add</button>
 		</form>
+		<!-- Comment Form -->
+		
 		</div>
 		<!-- Add Comments -->
 

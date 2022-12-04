@@ -238,17 +238,15 @@ body h1 {
 									<img src="img/ProfilePic.png"
 										style="width: 120px; padding: 20px" class="img-fluid">
 								</div>
-								
+
 								<div class="col">
 									<div class="card-block"
 										style="padding-left: 10px; padding-top: 20px; padding-bottom: 15px">
-										
-										<a href="DeleteCommentServlet?id=${comment.id}" style="float: right; padding-right:10px; ">
-											<img src="img/deletebtn.png"
-											style="height: 20px; width: 20px;">
+										<a href="DeleteCommentServlet?id=${comment.id}"
+											style="float: right; padding-right: 10px;"> 
+											<img src="img/deletebtn.png" style="height: 20px; width: 20px;">
 										</a>
-										
-										<h3 class="card-title" >${comment.username}</h3>
+										<h3 class="card-title">${comment.username}</h3>
 										<p class="card-text">${comment.review}</p>
 										<b class="card-text">${comment.dateposted}</b>
 									</div>

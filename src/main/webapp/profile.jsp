@@ -293,7 +293,7 @@ hr {
 				<div class="rname">
 					<h5 class="card-title"><c:out value="Honey Glazed Salmon" /></h5>
 					<p class="card-text">Ratings:4.5</p>
-					<a class="link-color" href="RecipeDetailServlet?id=${recipe.id}" style="text-decoration: none;">Read More</a>
+					<a class="link-color" href="RecipeDetailServlet?id=1" style="text-decoration: none;">Read More</a>
 				</div>
 			</div>
 		</div>

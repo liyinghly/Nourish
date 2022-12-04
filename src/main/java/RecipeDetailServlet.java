@@ -125,10 +125,8 @@ public class RecipeDetailServlet extends HttpServlet {
 				String username = rs.getString("username");
 				String review = rs.getString("review");
 				String dateposted = rs.getString("dateposted");
-				session.setAttribute("commentuser", username);
 				comment.add(new Comment(id, recipeid, recipeName, userId, username, review, dateposted));
 				System.out.println(username + ", " + review + ", " + dateposted);
-				System.out.println(username);
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());

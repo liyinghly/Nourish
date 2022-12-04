@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2022 at 03:28 PM
+-- Generation Time: Dec 04, 2022 at 04:09 PM
 -- Server version: 10.4.20-MariaDB
 -- PHP Version: 8.0.8
 
@@ -34,9 +34,17 @@ CREATE TABLE `comments` (
   `userId` int(11) NOT NULL,
   `username` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `review` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `datePosted` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `ratings` int(11) NOT NULL
+  `datePosted` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ratings` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`id`, `recipeId`, `recipeName`, `userId`, `username`, `review`, `datePosted`, `ratings`) VALUES
+(10, 3, 'Berry Smoothie Bowl', 4, 'billy', 'nice bowl', '04/12/2022 22:15:25', NULL),
+(15, 1, 'Honey Glazed Salmon', 5, 'johnlee', 'nice', '04/12/2022 23:05:09', NULL);
 
 -- --------------------------------------------------------
 
@@ -81,8 +89,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `email`, `password`) VALUES
-(1, 'john', 'johnlee@gmail.com', '123'),
-(3, 'billy', 'billy@gmail.com', '123');
+(4, 'billy', 'billy@gmail.com', '123'),
+(5, 'johnlee', 'john@gmail.com', '123');
 
 --
 -- Indexes for dumped tables
@@ -116,7 +124,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `recipes`
@@ -128,7 +136,7 @@ ALTER TABLE `recipes`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables

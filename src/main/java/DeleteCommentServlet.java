@@ -6,6 +6,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,7 +16,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.swing.JOptionPane;
-
 /**
  * Servlet implementation class DeleteCommentServlet
  */
@@ -55,36 +56,36 @@ public class DeleteCommentServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+				response.getWriter().append("Served at: ").append(request.getContextPath());
 
-		HttpSession session = request.getSession();
-		int commentId = Integer.parseInt(request.getParameter("id"));
+				HttpSession session = request.getSession();
+				int commentId = Integer.parseInt(request.getParameter("id"));
 
-			//pop-up window that asks the user for confirmation
-			int result = JOptionPane.showConfirmDialog(null, "Do you want to delete your comment?", "Delete Comment", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-			if(result == JOptionPane.YES_OPTION) {
+					//pop-up window that asks the user for confirmation
+					int result = JOptionPane.showConfirmDialog(null, "Do you want to delete your comment?", "Delete Comment", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+					if(result == JOptionPane.YES_OPTION) {
 
-				String deleteQuery = "delete from comments where id =" + commentId;
-				System.out.println(deleteQuery);
-				System.out.println(commentId);
+						String deleteQuery = "delete from comments where id =" + commentId;
+						System.out.println(deleteQuery);
+						System.out.println(commentId);
 
-				try (Connection connection = getConnection(); 
-						PreparedStatement statement = connection.prepareStatement(deleteQuery);) {
+						try (Connection connection = getConnection(); 
+								PreparedStatement statement = connection.prepareStatement(deleteQuery);) {
 
-					System.out.println("comment has been deleted from system");
-					int i = statement.executeUpdate();
+							System.out.println("comment has been deleted from system");
+							int i = statement.executeUpdate();
 
 
-				} catch (SQLException e) {
-					System.out.println(e.getMessage());
-				}
+						} catch (SQLException e) {
+							System.out.println(e.getMessage());
+						}
 
-				response.sendRedirect("RecipeDetailServlet?id=" + session.getAttribute("recipeId"));
+						response.sendRedirect("RecipeDetailServlet?id=" + session.getAttribute("recipeId"));
 
-			} else {
-				response.sendRedirect("RecipeDetailServlet?id=" + session.getAttribute("recipeId"));
-			}
-		} 
+					} else {
+						response.sendRedirect("RecipeDetailServlet?id=" + session.getAttribute("recipeId"));
+					}
+		}
 
 
 	/**

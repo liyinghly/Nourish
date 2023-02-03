@@ -1,4 +1,3 @@
-
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -61,7 +60,8 @@ public class UserServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		response.getWriter().append("Served at: ");
+		request.getContextPath();;
 
 		String action = request.getServletPath();
 		try {
@@ -83,45 +83,44 @@ public class UserServlet extends HttpServlet {
 		}
 
 	}
-	
+
 	// listUser function to connect to the database and retrieve the user's record
-		// and display in the profile.jsp
-		private void listUser(HttpServletRequest request, HttpServletResponse response)
-				throws SQLException, IOException, ServletException {
+	// and display in the profile.jsp
+	void listUser(HttpServletRequest request, HttpServletResponse response)
+			throws SQLException, IOException, ServletException {
 
-			HttpSession session = request.getSession();
-			// SELECT_USER_BY_ID SQL prepared statement: getting the user's id from the
-			// session storage
-			String query = "select * from users where id = " + session.getAttribute("userId");
+		HttpSession session = request.getSession();
+		// SELECT_USER_BY_ID SQL prepared statement: getting the user's id from the
+		// session storage
+		String query = "select * from users where id = " + session.getAttribute("userId");
 
-			List<User> user = new ArrayList<>();
-			try (Connection connection = getConnection();
+		List<User> user = new ArrayList<>();
+		try (Connection connection = getConnection();
 
-					// Step 5.1: Create a statement using connection object
-					PreparedStatement preparedStatement = connection.prepareStatement(query);) {
+				// Step 5.1: Create a statement using connection object
+				PreparedStatement preparedStatement = connection.prepareStatement(query);) {
 
-				// Step 5.2: Execute the query or update query
-				ResultSet rs = preparedStatement.executeQuery();
+			// Step 5.2: Execute the query or update query
+			ResultSet rs = preparedStatement.executeQuery();
 
-				// Step 5.3: Process the ResultSet object.
-				while (rs.next()) {
-					int id = rs.getInt("id");
-					String username = rs.getString("username");
-					String email = rs.getString("email");
-					String password = rs.getString("password");
-					System.out.println(username + "'s profile");
-					user.add(new User(id, username, email, password));
+			// Step 5.3: Process the ResultSet object.
+			while (rs.next()) {
+				int id = rs.getInt("id");
+				String username = rs.getString("username");
+				String email = rs.getString("email");
+				String password = rs.getString("password");
+				System.out.println(username + "'s profile");
+				user.add(new User(id, username, email, password));
 
-				}
-			} catch (SQLException e) {
-				System.out.println(e.getMessage());
 			}
-
-			// set the listUser attribute to be pass to the profile.jsp
-			request.setAttribute("listUser", user);
-			request.getRequestDispatcher("profile.jsp").forward(request, response);
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
 		}
 
+		// set the listUser attribute to be pass to the profile.jsp
+		request.setAttribute("listUser", user);
+		request.getRequestDispatcher("profile.jsp").forward(request, response);
+	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse

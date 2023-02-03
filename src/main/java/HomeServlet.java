@@ -1,4 +1,3 @@
-
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -63,8 +62,8 @@ public class HomeServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ")
-		.append(request.getContextPath());
+		response.getWriter().append("Served at: ");
+		request.getContextPath();;
 
 		// Step 4: Depending on the request servlet path, determine the function to
 		// invoke using the follow switch statement.
@@ -92,7 +91,7 @@ public class HomeServlet extends HttpServlet {
 
 	// Step 5: listUsers function to connect to the database and retrieve all users
 	// records
-	private void listRecipes(HttpServletRequest request, HttpServletResponse response)
+	void listRecipes(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 		List<Recipe> recipes = new ArrayList<>();
 		try (Connection connection = getConnection();
@@ -119,7 +118,7 @@ public class HomeServlet extends HttpServlet {
 		request.setAttribute("listRecipes", recipes);
 		request.getRequestDispatcher("/index.jsp").forward(request, response);
 	}
-
+ 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
 	 *      response)
